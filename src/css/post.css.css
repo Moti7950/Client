@@ -1,0 +1,44 @@
+#post-controler{
+    margin-top: 5px;
+    width: 50vw;
+    height: 55vh;
+    background-color: blueviolet;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 5fr;
+    border-radius: 10%;
+    box-shadow: 1px 1px gray ;
+    border: 2px solid ;
+}
+
+#img-post{
+    width: 10vw;
+    height: 10vh;
+    /* background-color: aqua; */
+    grid-column: 2/3;
+    grid-row: 1;
+}
+
+#explen-post{
+    /* background-color: burlywood; */
+    grid-column: 1/4;
+    grid-row: 3;
+}
+
+#likes-post{
+    /* background-color: blue; */
+    grid-column: 3/4;
+    grid-row: 2/3;
+}
+
+#ownerName-post{
+    /* background-color: darkgreen; */
+    grid-column: 2/3;
+    grid-row: 2/3;
+}
+
+#dataAndTime-post{
+    /* background-color: brown; */
+    grid-row: 2/3;
+    grid-column: 1/2;
+}
