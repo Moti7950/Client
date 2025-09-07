@@ -8,7 +8,7 @@ export default function HomePage() {
       <div id="home-controler">
         <header id="header-controler">
         <img id="LogoApp" src="../../public/img/LogoApp.jpeg" alt="Logo_App" />
-        <h1>Welcome from home page</h1>
+        <h1>Welcome to Linkodcode</h1>
         </header>
         <div id="posts-controler">
         {ExamplPost.map((currentItem : any) => {
