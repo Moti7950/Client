@@ -1,5 +1,40 @@
 #post-controler{
-    width: 80vw;
-    height: 80vh;
+    height: 45vh;
     background-color: blueviolet;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 5fr;
+    border-radius: 10%;
+}
+
+#img-post{
+    width: 20vw;
+    height: 20vh;
+    background-color: aqua;
+    grid-column: 2/3;
+    grid-row: 1;
+}
+
+#explen-post{
+    background-color: burlywood;
+    grid-column: 1/4;
+    grid-row: 3;
+}
+
+#likes-post{
+    background-color: blue;
+    grid-column: 3/4;
+    grid-row: 2/3;
+}
+
+#ownerName-post{
+    background-color: darkgreen;
+    grid-column: 2/3;
+    grid-row: 2/3;
+}
+
+#dataAndTime-post{
+    background-color: brown;
+    grid-row: 2/3;
+    grid-column: 1/2;
 }
