@@ -1,12 +1,15 @@
+.account-buten{
+    border-radius: 10px;
+}
 #home-controler {
-  background-color: darkgrey;
+  /* background-color: darkgrey; */
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
   grid-template-rows: 1fr 15fr;
 }
 
 #header-controler {
-  background-color: aqua;
+  /* background-color: aqua; */
   grid-column: 1/4;
   grid-row: 1/2;
   display: flex;

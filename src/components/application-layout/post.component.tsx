@@ -8,6 +8,7 @@ export default function Post(props: {
 }) {
   return (
     <>
+    {/* a templit for posts */}
       <div id="post-controler">
         <img id="img-post" src={props.img} alt="img_post" />
         <h3 id="explen-post">{props.explen}</h3>
