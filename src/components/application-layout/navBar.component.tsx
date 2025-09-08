@@ -1,7 +1,13 @@
 // reacts file import
+import { useRef, useState } from "react";
 import { Link } from "react-router";
 
+// import tsx
+import { GetPostById } from "../../utility/functionFetch.utility.tsx";
+
 export default function NavBar() {
+  const inputPostId = useRef<any>(null);
+  const [curentPage, setPage] = useState<any>([]);
   return (
     <>
       <nav>
@@ -16,17 +22,33 @@ export default function NavBar() {
             <Link to="/showPost">home</Link>
           </button>
           <button className="account-buten">
-            <Link to="/#">Login</Link>
+            <Link to="/login">Login</Link>
           </button>
           <button className="account-buten">
-            <Link to="/#">sign in</Link>
+            <Link to="/sigin">sign in</Link>
           </button>
           <button className="account-buten">
-            <Link to="/CreteANewPost">new post</Link>
+            <Link to="/creteANewPost">new post</Link>
           </button>
-          <input type="text" placeholder="Please enter post id"/>
-          <button className="account-buten" onClick={()=>{
-          }}>sherch</button>
+          <input
+            type="text"
+            placeholder="Please enter post id"
+            ref={inputPostId}
+          />
+          <button
+            className="account-buten"
+            onClick={async () => {
+              console.log(inputPostId.current.value);
+              try {
+                const newPost = await GetPostById(inputPostId.current.value);
+                setPage(newPost);
+              } catch {
+                console.log("from catch GetPostById");
+              }
+            }}
+          >
+            sherch
+          </button>
         </header>
       </nav>
     </>
