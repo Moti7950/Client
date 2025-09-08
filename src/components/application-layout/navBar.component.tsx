@@ -13,13 +13,13 @@ export default function NavBar() {
           />
           <h1>Welcome to Linkodcode</h1>
           <button className="account-buten">
-            <Link to="/home">home</Link>
+            <Link to="/showPost">home</Link>
           </button>
           <button className="account-buten">
-            <Link to="/home">Login</Link>
+            <Link to="/#">Login</Link>
           </button>
           <button className="account-buten">
-            <Link to="/home">sign in</Link>
+            <Link to="/#">sign in</Link>
           </button>
           <button className="account-buten">
             <Link to="/CreteANewPost">new post</Link>
