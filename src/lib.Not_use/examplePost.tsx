@@ -6,7 +6,7 @@ type TemplitPost = {
   "ownerName": string;
   "dataAndTime": string;
 }
-import "../../public/img/1.jpg"
+
 export const ExamplPost:TemplitPost[] = [
   {
     "id": 1,

@@ -17,6 +17,9 @@
     /* background-color: aqua; */
     grid-column: 2/3;
     grid-row: 1;
+    border-radius: 50%;
+    margin-left: 30px;
+    
 }
 
 #explen-post{
