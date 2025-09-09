@@ -6,15 +6,18 @@ import { GetAllPosts } from "../../utility/functionFetch.utility.tsx";
 import { useEffect, useState } from "react";
 
 // first page
-export default function HomePage() {
-  const [posts, getPosts] = useState<any>([]);
+export default function Posts() {
+  const [posts, getPosts] = useState<any>([{}]);
 
   useEffect(() => {
     (async () => {
       try {
         const listOfPos = await GetAllPosts();
+        console.log(posts);
         getPosts(listOfPos);
         console.log(listOfPos);
+        console.log(typeof posts, posts);
+        
       } catch{
         console.log("from catch");
       }

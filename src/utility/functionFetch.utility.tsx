@@ -1,14 +1,23 @@
 export async function GetAllPosts() {
-    const res = await fetch("http://127.0.0.1:9085/api/users/show/posts");
-    if(!res.ok) throw new Error("Failed to fetch a posts");
-    const json = await res.json();
-    return json?? []; 
+    try{
+        const res = await fetch("http://127.0.0.1:9085/api/users/show/posts");
+        const json = await res.json();
+        return json; 
+    }
+    catch(e){
+      console.log("Failed to fetch a posts");
+    }
+    
 }
 
 export async function GetPostById(postIdSherch: string)
 {
-    const res = await fetch(`http://127.0.0.1:9085/api/users/showOne/post/:${postIdSherch}`)
-    if(!res.ok) throw new Error(`Failed to fetch a post ${postIdSherch}` )
-    const json = await res.json();
-    return json ?? [];
+    try{
+        const res = await fetch(`http://127.0.0.1:9085/api/users/showOne/post/:${postIdSherch}`)
+        const json = await res.json();
+        return json;
+    }
+    catch(e){
+      console.log("Failed to fetch a post");
+    }
 }

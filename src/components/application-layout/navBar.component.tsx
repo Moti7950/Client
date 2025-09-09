@@ -1,11 +1,18 @@
 // reacts file import
 import { useRef, useState } from "react";
-import { Link } from "react-router";
+import { Link, Navigate } from "react-router";
+import { useNavigate } from "react-router";
 
 // import tsx
 import { GetPostById } from "../../utility/functionFetch.utility.tsx";
+import ShowOnePost from "../../components/application-layout/onePost.component.tsx"
 
-export default function NavBar() {
+export default function NavBar(props:{
+  curentPage: any;
+  setNewPage: Function;
+}) {
+  let navigate = useNavigate()
+
   const inputPostId = useRef<any>(null);
   const [curentPage, setPage] = useState<any>([]);
   return (
@@ -19,7 +26,7 @@ export default function NavBar() {
           />
           <h1>Welcome to Linkodcode</h1>
           <button className="account-buten">
-            <Link to="/showPost">home</Link>
+            <Link to="/showPosts">Posts</Link>
           </button>
           <button className="account-buten">
             <Link to="/login">Login</Link>
@@ -39,12 +46,16 @@ export default function NavBar() {
             className="account-buten"
             onClick={async () => {
               console.log(inputPostId.current.value);
-              try {
                 const newPost = await GetPostById(inputPostId.current.value);
-                setPage(newPost);
-              } catch {
-                console.log("from catch GetPostById");
-              }
+                const x = inputPostId.current.value
+                navigate(`/ShowOnePost/:${x}`)
+                if (newPost) {
+                  props.setNewPage(newPost);
+                  setPage(newPost)
+                  console.log(curentPage);                  
+                } else {
+                  console.log("Post not found");
+                }
             }}
           >
             sherch

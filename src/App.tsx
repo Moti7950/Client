@@ -7,21 +7,25 @@ import "./css/navBar.css.css";
 // import page
 import { BrowserRouter, Routes, Route } from "react-router";
 import CreteANewPost from "./page/creteNewPost.tsx";
-import HomePage from "./components/application-layout/home.page.tsx";
-import NavBar from "./components/application-layout/navBar.component.tsx";
+import Posts from "./components/application-layout/posts.tsx";
 import Login from "./components/application-layout/login.component.tsx";
 import Sigin from "./components/application-layout/sigin.component.tsx";
+import Layout from "./components/layout.component.tsx";
+import ShowOnePost from "./components/application-layout/onePost.component.tsx"
 
 function App() {
+  
   return (
     <>
       <BrowserRouter>
-      <NavBar/>
         <Routes>
-          <Route path="/showPost" element={<HomePage />} />
-          <Route path="/creteANewPost" element={<CreteANewPost />} />
-          <Route path="/login" element={<Login/>}/>
-          <Route path="/sigin" element={<Sigin/>}/>
+          <Route path="/" element={<Layout/>}>
+            <Route path="/showPosts" element={<Posts />} />
+            <Route path="/creteANewPos/:id" element={<CreteANewPost />} />
+            <Route path="/ShowOnePost/" element={<ShowOnePost/>}/>
+            <Route path="/login" element={<Login />} />
+            <Route path="/sigin" element={<Sigin />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </>
