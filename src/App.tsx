@@ -12,7 +12,7 @@ import Login from "./components/application-layout/login.component.tsx";
 import Sigin from "./components/application-layout/sigin.component.tsx";
 import Layout from "./components/layout.component.tsx";
 import ShowOnePost from "./components/application-layout/onePost.component.tsx"
-
+import ErorrPage from "./components/application-layout/erorr.component.tsx"
 function App() {
   
   return (
@@ -22,9 +22,10 @@ function App() {
           <Route path="/" element={<Layout/>}>
             <Route path="/showPosts" element={<Posts />} />
             <Route path="/creteANewPost" element={<CreteANewPost />} />
-            <Route path="/ShowOnePost/1" element={<ShowOnePost/>}/>
+            <Route path="/ShowOnePost/:postId" element={<ShowOnePost/>}/>
             <Route path="/login" element={<Login />} />
             <Route path="/sigin" element={<Sigin />} />
+            <Route path="/erorrPage" element={<ErorrPage/>}/>
           </Route>
         </Routes>
       </BrowserRouter>

@@ -3,7 +3,9 @@ import { useEffect, useRef, useState } from "react";
 // tsx file import
 import Post from "./post.component.tsx";
 import { GetPostById } from "../../utility/functionFetch.utility.tsx";
-import { useParams } from "react-router";
+import {useParams } from "react-router";
+
+
 
 export default function ShowOnePost() {
   const { postId } = useParams();
@@ -11,13 +13,13 @@ export default function ShowOnePost() {
   useEffect(() => {
     (async () => {
       try {
-        const postToShow = await GetPostById("1");
+        const postToShow = await GetPostById(postId ? postId :"0");
         getPost([postToShow]);
       } catch {
         console.log("from catch ShowOnePost");
       }
     })();
-  }, []);
+  }, [postId]);
 
   return (
     <>
@@ -38,7 +40,6 @@ export default function ShowOnePost() {
           })}
         </div>
       </div>
-      {console.log(post)}
     </>
   );
 }
