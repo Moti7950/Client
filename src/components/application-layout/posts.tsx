@@ -19,7 +19,8 @@ export default function Posts() {
       }
     })();
   }, []);
-
+{console.log(posts);
+}
   return (
     <>
       {/* This code is for controlling the home page. */}

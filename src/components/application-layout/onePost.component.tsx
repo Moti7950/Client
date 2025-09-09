@@ -12,7 +12,7 @@ export default function ShowOnePost() {
     (async () => {
       try {
         const postToShow = await GetPostById("1");
-        getPost(postToShow);
+        getPost([postToShow]);
       } catch {
         console.log("from catch ShowOnePost");
       }
@@ -24,7 +24,7 @@ export default function ShowOnePost() {
       <div id="home-controler">
         <div id="posts-controler">
           <h1>hi from one post</h1>
-          {Object.entries(post).map((currentItem: any) => {
+          {post.map((currentItem: any) => {
             return (
               <Post
                 key={currentItem.id}
@@ -38,6 +38,7 @@ export default function ShowOnePost() {
           })}
         </div>
       </div>
+      {console.log(post)}
     </>
   );
 }
