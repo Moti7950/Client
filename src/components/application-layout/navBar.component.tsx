@@ -1,20 +1,19 @@
 // reacts file import
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, Navigate } from "react-router";
 import { useNavigate } from "react-router";
 
 // import tsx
 import { GetPostById } from "../../utility/functionFetch.utility.tsx";
-import ShowOnePost from "../../components/application-layout/onePost.component.tsx"
+import ShowOnePost from "../../components/application-layout/onePost.component.tsx";
 
-export default function NavBar(props:{
+export default function NavBar(props: {
   curentPage: any;
   setNewPage: Function;
 }) {
-  let navigate = useNavigate()
-
+  let navigate = useNavigate();
   const inputPostId = useRef<any>(null);
-  const [curentPage, setPage] = useState<any>([]);
+  const [curentPage, setPage] = useState<any>([{}]);
   return (
     <>
       <nav>
@@ -44,18 +43,10 @@ export default function NavBar(props:{
           />
           <button
             className="account-buten"
-            onClick={async () => {
+            onClick={async() => {
               console.log(inputPostId.current.value);
-                const newPost = await GetPostById(inputPostId.current.value);
-                const x = inputPostId.current.value
-                navigate(`/ShowOnePost/:${x}`)
-                if (newPost) {
-                  props.setNewPage(newPost);
-                  setPage(newPost)
-                  console.log(curentPage);                  
-                } else {
-                  console.log("Post not found");
-                }
+              navigate(`/ShowOnePost/${inputPostId.current.value}`);
+             
             }}
           >
             sherch

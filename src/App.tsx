@@ -21,8 +21,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout/>}>
             <Route path="/showPosts" element={<Posts />} />
-            <Route path="/creteANewPos/:id" element={<CreteANewPost />} />
-            <Route path="/ShowOnePost/" element={<ShowOnePost/>}/>
+            <Route path="/creteANewPost" element={<CreteANewPost />} />
+            <Route path="/ShowOnePost/1" element={<ShowOnePost/>}/>
             <Route path="/login" element={<Login />} />
             <Route path="/sigin" element={<Sigin />} />
           </Route>

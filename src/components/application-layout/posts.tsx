@@ -7,17 +7,13 @@ import { useEffect, useState } from "react";
 
 // first page
 export default function Posts() {
-  const [posts, getPosts] = useState<any>([{}]);
+  const [posts, getPosts] = useState<any>([]);
 
   useEffect(() => {
     (async () => {
       try {
         const listOfPos = await GetAllPosts();
-        console.log(posts);
-        getPosts(listOfPos);
-        console.log(listOfPos);
-        console.log(typeof posts, posts);
-        
+        getPosts(listOfPos); 
       } catch{
         console.log("from catch");
       }

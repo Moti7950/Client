@@ -1,17 +1,18 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 // tsx file import
 import Post from "./post.component.tsx";
 import { GetPostById } from "../../utility/functionFetch.utility.tsx";
+import { useParams } from "react-router";
 
 export default function ShowOnePost() {
-  const [post, getPost] = useState<any>([{}]);
+  const { postId } = useParams();
+  const [post, getPost] = useState<any>([]);
   useEffect(() => {
     (async () => {
       try {
-        const postToShow = await GetPostById(postOhow)
+        const postToShow = await GetPostById("1");
         getPost(postToShow);
-        console.log(post);
       } catch {
         console.log("from catch ShowOnePost");
       }
@@ -23,7 +24,7 @@ export default function ShowOnePost() {
       <div id="home-controler">
         <div id="posts-controler">
           <h1>hi from one post</h1>
-          {postOhow.map((currentItem: any) => {
+          {Object.entries(post).map((currentItem: any) => {
             return (
               <Post
                 key={currentItem.id}
