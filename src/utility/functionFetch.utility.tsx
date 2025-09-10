@@ -7,7 +7,6 @@ export async function GetAllPosts() {
     console.log("Failed to fetch a posts");
   }
 }
-
 // return only object
 export async function GetPostById(postIdSherch: string | undefined) {
   try {
@@ -39,3 +38,4 @@ export async function IfUserExsis(userName: string, password: string) {
     return false;
   }
 }
+

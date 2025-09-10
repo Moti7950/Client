@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router";
 
-export default function Sigin(props: { existingUser: Function }) {
+export default function SiginOut(props: { existingUser: Function }) {
   const navigate = useNavigate();
   return (
     <>

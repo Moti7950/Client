@@ -5,10 +5,12 @@ import "./App.css";
 import "./css/home.css.css";
 import "./css/post.css.css";
 import "./css/navBar.css.css";
+import "./css/homePage.css.css"
+import "./css/layout.css.css"
 // tsx code import
 // import page
 import {Routes, Route } from "react-router";
-import CreteANewPost from "./page/creteNewPost.tsx";
+import CreteANewPost from "./components/application-layout/creteNewPost.tsx";
 import Posts from "./components/application-layout/posts.tsx";
 import Layout from "./components/layout.component.tsx";
 import ShowOnePost from "./components/application-layout/onePost.component.tsx";

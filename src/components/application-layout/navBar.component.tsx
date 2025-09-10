@@ -37,9 +37,7 @@ export default function NavBar(props: { existingUser: Function }) {
           <button
             className="account-buten"
             onClick={async () => {
-              console.log(inputPostId.current.value);
               const inputCheck = await GetPostById(inputPostId.current.value);
-              console.log(inputCheck);
               if (!inputCheck) {
                 navigate("/erorrPage");
               } else {

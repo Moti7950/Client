@@ -20,9 +20,7 @@ export default function ShowOnePost() {
         } else {
           getPost([postToShow]);
         }
-      } catch {
-        console.log("from catch ShowOnePost");
-      }
+      } catch {}
     })();
   }, [postId]);
 

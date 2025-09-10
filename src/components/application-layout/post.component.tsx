@@ -10,7 +10,6 @@ export default function Post(props: {
 }) {
   const navigate = useNavigate();
   const filterIdByClick = (e: any) => {
-          console.log(e.target.parentNode.className);
           navigate(`/ShowOnePost/${e.target.parentNode.className}`);
         }
   return (

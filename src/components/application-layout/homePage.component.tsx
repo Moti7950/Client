@@ -1,5 +1,5 @@
 import Login from "./login.component";
-import Sigin from "./sigin.component";
+import SiginOut from "./sigin.component";
 
 export default function HomePage(
     props: {
@@ -9,9 +9,12 @@ export default function HomePage(
 ){
     return(
         <>
+        <div id="homePage-controler">
+        <img id="homePage-logo" src="../../../public/LogoApp.jpeg" alt="Logo_App" />
         <h1>Welcome to home page</h1>
         <Login existingUser={props.existingUser} />
-        {/* <Sigin existingUser={props.existingUser}  /> */}
+        {/* <SiginOut existingUser={props.existingUser}  /> */}
+        </div>
         </>
     )
 }

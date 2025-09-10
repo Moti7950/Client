@@ -1,5 +1,6 @@
+
 #header-controler {
-  background-color: aqua;
+  background-color: rgb(204, 236, 236);
   grid-column: 1/4;
   grid-row: 1/2;
   display: flex;
