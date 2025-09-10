@@ -1,8 +1,32 @@
-export default function Login()
-{
-    return(
-        <>
-        <h1>Hi from Login</h1>
-        </>
-    )
+import { useRef } from "react";
+import { useNavigate } from "react-router";
+import {IfUserExsis} from "../../utility/functionFetch.utility.tsx"
+
+export default function Login() {
+    const navigate = useNavigate();
+  const userName = useRef<HTMLInputElement>(null!);
+  const password = useRef<HTMLInputElement>(null!);
+  return (
+    <>
+      <h1>Hi from Login</h1>
+      <input type="text" placeholder="enter userName" ref={userName}  />
+      <input type="password" placeholder="enter password" ref={password} />
+      <button
+        className="account-buten"
+        onClick={async () => {
+          const loginCheck = await IfUserExsis(userName.current?.value ,password.current?.value);
+          console.log(loginCheck);
+
+          if (!loginCheck) {
+            navigate("/erorrPage");
+          } else {
+            navigate("/showPosts");
+          }
+        }}
+      >
+        submit
+      </button>
+      {console.log(userName, password)}
+    </>
+  );
 }
