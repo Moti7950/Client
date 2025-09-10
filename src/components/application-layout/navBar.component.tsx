@@ -5,10 +5,7 @@ import { useNavigate } from "react-router";
 
 // import tsx
 import { GetPostById } from "../../utility/functionFetch.utility.tsx";
-export default function NavBar(props: {
-  curentPage: any;
-  setNewPage: Function;
-}) {
+export default function NavBar(props: { existingUser: Function }) {
   const navigate = useNavigate();
   const inputPostId = useRef<any>(null);
   return (
@@ -24,11 +21,10 @@ export default function NavBar(props: {
           <button className="account-buten">
             <Link to="/showPosts">Posts</Link>
           </button>
-          <button className="account-buten">
-            <Link to="/login">Login</Link>
-          </button>
-          <button className="account-buten">
-            <Link to="/sigin">sign in</Link>
+          <button className="account-buten" onClick={()=>{
+            props.existingUser(false)
+            navigate("/")
+          }} >sigin out
           </button>
           <button className="account-buten">
             <Link to="/creteANewPost">new post</Link>

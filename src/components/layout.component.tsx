@@ -3,21 +3,24 @@ import "../css/home.css.css";
 import "../css/post.css.css";
 import NavBar from "./application-layout/navBar.component";
 import { Outlet } from "react-router";
-import { useState } from "react";
 
-export default function Layout() {
-  const [curentPage, setNewPage] =useState<any>([])
+export default function Layout(props: {
+  statusNow: boolean;
+  existingUser: Function;
+}) {
   return (
     <>
-      <div>
-        <nav>
-          <NavBar curentPage={curentPage} setNewPage={setNewPage}/>
-        </nav>
-        <main>
-          <Outlet /> 
-        </main>
-        <footer> My Footer </footer>
-      </div>
+      {props.statusNow && (
+        <div>
+          <nav>
+            <NavBar existingUser={props.existingUser} />
+          </nav>
+          <main>
+            <Outlet />
+          </main>
+          <footer> My Footer </footer>
+        </div>
+      )}
     </>
   );
 }

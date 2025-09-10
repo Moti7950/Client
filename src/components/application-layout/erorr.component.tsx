@@ -5,7 +5,7 @@ export default function ErorrPage(){
     return(
         <>
         <h1>Erorr input</h1>
-        <button onClick={()=>{navigate("/")}}>home</button>
+        <button onClick={()=>{navigate("/showPosts")}}>home</button>
         </>
     )
 }

@@ -2,7 +2,11 @@ import { useRef } from "react";
 import { useNavigate } from "react-router";
 import {IfUserExsis} from "../../utility/functionFetch.utility.tsx"
 
-export default function Login() {
+export default function Login(
+     props: {
+  existingUser: Function;
+}
+) {
     const navigate = useNavigate();
   const userName = useRef<HTMLInputElement>(null!);
   const password = useRef<HTMLInputElement>(null!);
@@ -18,9 +22,11 @@ export default function Login() {
           console.log(loginCheck);
 
           if (!loginCheck) {
-            navigate("/erorrPage");
+            props.existingUser(false)
+            // navigate("/erorrPage");
           } else {
-            navigate("/showPosts");
+            props.existingUser(true)
+            // navigate("/showPosts");
           }
         }}
       >
