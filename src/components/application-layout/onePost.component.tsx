@@ -13,9 +13,9 @@ export default function ShowOnePost() {
   useEffect(() => {
     (async () => {
       try {
-        const postToShow = await GetPostById(postId ? postId : "0");
+        const postToShow = await GetPostById(postId);
         console.log(typeof postToShow != typeof Object);
-        if (!postToShow) {
+        if (!postToShow && typeof postToShow != typeof Object) {
           navigate("/erorrPage");
         } else {
           getPost([postToShow]);

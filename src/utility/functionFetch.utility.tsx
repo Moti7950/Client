@@ -1,9 +1,3 @@
-import { useNavigate } from "react-router";
-
-export function NavToErorr() {
-  const navigate = useNavigate();
-  navigate("/erorrPage");
-}
 
 export async function GetAllPosts() {
   try {
@@ -12,12 +6,11 @@ export async function GetAllPosts() {
     return json;
   } catch (e) {
     console.log("Failed to fetch a posts");
-    NavToErorr()
   }
 }
 
 // return only object
-export async function GetPostById(postIdSherch: string) {
+export async function GetPostById(postIdSherch: any) {
   try {
     const res = await fetch(
       `http://127.0.0.1:9085/api/users/showOne/post/:${postIdSherch}`
@@ -26,6 +19,5 @@ export async function GetPostById(postIdSherch: string) {
     return json;
   } catch (e) {
     console.log("Failed to fetch a post");
-    NavToErorr()
   }
 }
