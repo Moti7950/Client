@@ -19,19 +19,20 @@ export default function Posts() {
       }
     })();
   }, []);
-{console.log(posts);
-}
+  
+
   return (
     <>
       {/* This code is for controlling the home page. */}
-      <div id="home-controler">
+      <div id="home-controler" >
         {/* This code is for controlling the posts. */}
-        <div id="posts-controler">
+        <div id="posts-controler" >
           {/* In this code I run a loop on my DB (For now json) to publish the posts. */}
           {posts.map((currentItem: any) => {
             return (
-              <Post
+              <Post 
                 key={currentItem.id}
+                id={currentItem.id}
                 img={currentItem.img}
                 explen={currentItem.explen}
                 likes={currentItem.likes}

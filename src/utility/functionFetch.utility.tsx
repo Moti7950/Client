@@ -1,14 +1,8 @@
-import {useNavigate} from "react-router";
+import { useNavigate } from "react-router";
 
-
-async function NavToErorr() {
-    const navigate = useNavigate();
-    return(
-        <>
-        <div onClick={()=>{navigate("/erorrPage")}}></div>
-        </>
-    )
-
+export function NavToErorr() {
+  const navigate = useNavigate();
+  navigate("/erorrPage");
 }
 
 export async function GetAllPosts() {
@@ -18,6 +12,7 @@ export async function GetAllPosts() {
     return json;
   } catch (e) {
     console.log("Failed to fetch a posts");
+    NavToErorr()
   }
 }
 
@@ -31,6 +26,6 @@ export async function GetPostById(postIdSherch: string) {
     return json;
   } catch (e) {
     console.log("Failed to fetch a post");
-    this._router.navigate
+    NavToErorr()
   }
 }

@@ -1,20 +1,25 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router";
 
 // tsx file import
 import Post from "./post.component.tsx";
 import { GetPostById } from "../../utility/functionFetch.utility.tsx";
-import {useParams } from "react-router";
-
-
+import { useParams } from "react-router";
 
 export default function ShowOnePost() {
+  const navigate = useNavigate();
   const { postId } = useParams();
   const [post, getPost] = useState<any>([]);
   useEffect(() => {
     (async () => {
       try {
-        const postToShow = await GetPostById(postId ? postId :"0");
-        getPost([postToShow]);
+        const postToShow = await GetPostById(postId ? postId : "0");
+        console.log(typeof postToShow != typeof Object);
+        if (!postToShow) {
+          navigate("/erorrPage");
+        } else {
+          getPost([postToShow]);
+        }
       } catch {
         console.log("from catch ShowOnePost");
       }
@@ -25,11 +30,11 @@ export default function ShowOnePost() {
     <>
       <div id="home-controler">
         <div id="posts-controler">
-          <h1>hi from one post</h1>
           {post.map((currentItem: any) => {
             return (
               <Post
                 key={currentItem.id}
+                id={currentItem.id}
                 img={currentItem.img}
                 explen={currentItem.explen}
                 likes={currentItem.likes}

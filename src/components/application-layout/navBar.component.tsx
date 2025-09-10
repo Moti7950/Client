@@ -1,19 +1,16 @@
 // reacts file import
-import { useEffect, useRef, useState } from "react";
-import { Link, Navigate } from "react-router";
+import { useRef} from "react";
+import { Link } from "react-router";
 import { useNavigate } from "react-router";
 
 // import tsx
 import { GetPostById } from "../../utility/functionFetch.utility.tsx";
-import ShowOnePost from "../../components/application-layout/onePost.component.tsx";
-
 export default function NavBar(props: {
   curentPage: any;
   setNewPage: Function;
 }) {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
   const inputPostId = useRef<any>(null);
-  const [curentPage, setPage] = useState<any>([{}]);
   return (
     <>
       <nav>
@@ -43,10 +40,15 @@ export default function NavBar(props: {
           />
           <button
             className="account-buten"
-            onClick={async() => {
+            onClick={async () => {
               console.log(inputPostId.current.value);
-              navigate(`/ShowOnePost/${inputPostId.current.value}`);
-             
+              const inputCheck = await GetPostById(inputPostId.current.value);
+              console.log(inputCheck);
+              if (!inputCheck) {
+                navigate("/erorrPage");
+              } else {
+                navigate(`/ShowOnePost/${inputPostId.current.value}`);
+              }
             }}
           >
             sherch
