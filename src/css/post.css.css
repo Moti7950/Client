@@ -1,7 +1,7 @@
 #post-controler{
     margin-top: 5px;
-    width: 50vw;
-    height: 55vh;
+    width: 19rem;
+    height: 16rem;
     background-color: #f7f4f4;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -9,14 +9,18 @@
     border-radius: 10%;
     box-shadow: 1px 1px gray ;
     border: 2px solid ;
+    transition: all 4s;
 }
 
 #img-post{
-    width: 10vw;
-    height: 10vh;
+    width: 4rem;
+    height: 3rem;
     /* background-color: aqua; */
     grid-column: 2/3;
     grid-row: 1;
+    border-radius: 50%;
+    margin-left: 30px;
+    
 }
 
 #explen-post{
@@ -41,4 +45,9 @@
     /* background-color: brown; */
     grid-row: 2/3;
     grid-column: 1/2;
+}
+
+#post-controler:hover{
+    width: 30rem;
+    height: 30rem;
 }

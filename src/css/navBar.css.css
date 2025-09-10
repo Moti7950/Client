@@ -1,0 +1,14 @@
+
+#header-controler {
+  background-color: rgb(204, 236, 236);
+  grid-column: 1/4;
+  grid-row: 1/2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#LogoApp {
+  width: 10vw;
+  height: 10vh;
+}
